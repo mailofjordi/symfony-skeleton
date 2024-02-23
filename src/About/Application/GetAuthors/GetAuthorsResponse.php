@@ -8,7 +8,6 @@ use App\Shared\Domain\Bus\Query\Response;
 
 final readonly class GetAuthorsResponse implements Response
 {
-
     public function __construct(private array $authors)
     {
     }

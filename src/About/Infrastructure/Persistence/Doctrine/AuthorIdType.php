@@ -9,7 +9,6 @@ use App\Shared\Infrastructure\Persistence\Doctrine\UuidType;
 
 class AuthorIdType extends UuidType
 {
-
     protected function getPhpValueFromString(string $value): Uuid
     {
         return new AuthorId($value);

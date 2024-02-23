@@ -8,7 +8,7 @@ use App\About\Domain\AuthorRepository;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]
-readonly final class GetAuthorsHandler
+final readonly class GetAuthorsHandler
 {
     public function __construct(private AuthorRepository $authorRepository)
     {
