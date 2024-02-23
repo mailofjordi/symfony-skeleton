@@ -13,4 +13,4 @@ jobs:
                 php-version: "8.2"
             - uses: "ramsey/composer-install@v2"
             - name: Linter
-              run: docker compose run php vendor/bin/php-cs-fixer check --diff
+              run: php vendor/bin/php-cs-fixer check --diff
