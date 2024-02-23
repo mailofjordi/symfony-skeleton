@@ -1,0 +1,14 @@
+name: CI
+on: 
+    push:
+        branches:
+            - '*'
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install dependencies
+              run: docker compose run php composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            - name: Linter
+              run: docker compose run php vendor/bin/php-cs-fixer check --diff
