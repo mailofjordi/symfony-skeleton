@@ -14,3 +14,5 @@ jobs:
             - uses: "ramsey/composer-install@v2"
             - name: Linter
               run: php vendor/bin/php-cs-fixer check --diff
+            - name: Static analysis
+              run: php vendor/bin/phpstan analyse

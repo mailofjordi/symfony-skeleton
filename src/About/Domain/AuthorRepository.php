@@ -6,5 +6,8 @@ namespace App\About\Domain;
 
 interface AuthorRepository
 {
+    /**
+     * @return Author[]
+     */
     public function findAll(): array;
 }
