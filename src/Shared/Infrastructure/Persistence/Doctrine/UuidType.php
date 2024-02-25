@@ -18,17 +18,23 @@ abstract class UuidType extends StringType
         return $this->getTypeName();
     }
 
-    final public function convertToDatabaseValue($value, $platform): ?string
+    public function convertToDatabaseValue($value, $platform): ?string
     {
-        if (null === $value) {
+        /** @var Uuid|null $value */
+        if ($value === null) {
             return null;
         }
 
-        return parent::convertToDatabaseValue($value->toString(), $platform);
+        return (string) $value;
+
     }
 
-    public function convertToPHPValue($value, $platform): Uuid
+    public function convertToPHPValue($value, $platform): ?Uuid
     {
+        /** @var string|null $value */
+        if ($value === null) {
+            return null;
+        }
         return $this->getPhpValueFromString($value);
     }
 }

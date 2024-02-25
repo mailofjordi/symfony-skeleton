@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 readonly class DoctrineAuthorRepository implements AuthorRepository
 {
-
     public function __construct(private EntityManagerInterface $entityManager)
     {
     }

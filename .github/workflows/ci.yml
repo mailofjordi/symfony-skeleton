@@ -1,0 +1,18 @@
+name: CI
+on: 
+    push:
+        branches:
+            - '*'
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: "shivammathur/setup-php@v2"
+              with:
+                php-version: "8.2"
+            - uses: "ramsey/composer-install@v2"
+            - name: Linter
+              run: php vendor/bin/php-cs-fixer check --diff
+            - name: Static analysis
+              run: php vendor/bin/phpstan analyse
