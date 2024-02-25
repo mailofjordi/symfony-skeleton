@@ -5,7 +5,6 @@ parameters:
         - config/
         - public/
         - src/
-        - tests/
 services:
 	-
 		class: \App\Shared\Infrastructure\PhpStan\SymfonyMessengerHandler
