@@ -25,11 +25,13 @@ final class AddAuthor extends AbstractController
     public function about(Request $request): Response
     {
         $jsonData = $request->getContent();
+
+        /** @var array<string, string> $data */
         $data = json_decode($jsonData, true, 512, JSON_THROW_ON_ERROR);
         $this->commandBus->dispatch(
             new \App\About\Application\AddAuthor\AddAuthor(
-                $data['id'] ?? null,
-                $data['name'] ?? null,
+                $data['id'],
+                $data['name'],
             )
         );
 
