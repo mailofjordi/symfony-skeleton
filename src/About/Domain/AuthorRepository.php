@@ -10,4 +10,6 @@ interface AuthorRepository
      * @return Author[]
      */
     public function findAll(): array;
+
+    public function save(Author $author): void;
 }

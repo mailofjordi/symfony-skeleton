@@ -19,4 +19,10 @@ readonly class DoctrineAuthorRepository implements AuthorRepository
         $repository = $this->entityManager->getRepository(Author::class);
         return $repository->findAll();
     }
+
+    public function save(Author $author): void
+    {
+        $this->entityManager->persist($author);
+        $this->entityManager->flush();
+    }
 }

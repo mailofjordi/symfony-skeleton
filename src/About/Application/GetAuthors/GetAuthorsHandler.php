@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\About\Application\GetAuthors;
 
 use App\About\Domain\AuthorRepository;
-use Symfony\Component\Messenger\Attribute\AsMessageHandler;
+use App\Shared\Domain\Bus\Handler;
 
-#[AsMessageHandler]
-final readonly class GetAuthorsHandler
+final readonly class GetAuthorsHandler implements Handler
 {
     public function __construct(private AuthorRepository $authorRepository)
     {
